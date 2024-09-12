@@ -38,6 +38,18 @@ class LinkedList {
     }
     return counter;
   }
+
+  headd() {
+    return this.head;
+  }
+
+  tail() {
+    let current = this.head;
+    while (current.nextNode) {
+      current = current.nextNode;
+    }
+    return current;
+  }
 }
 
 class Node {
