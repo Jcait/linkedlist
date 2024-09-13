@@ -94,3 +94,39 @@ head() is to return the first node, Tail is to Return the last (head has an extr
     return current;
   }
 ```
+
+## at
+
+At starts with counting itself at 0, and will iterate through the list, incrementing it's count untill it reaches the required amount, to which it will return the value or null if the value does not exist
+
+```js
+  at(index) {
+    const indx = index;
+    let currentIndex = 0;
+    let current = this.head;
+
+    while (indx != currentIndex) {
+      current = current.nextNode;
+      currentIndex++;
+      console.log(currentIndex);
+    }
+    return current;
+  }
+```
+
+## Pop
+
+Struggled a bit with this one, but I found if we the nextNodes Next node doesn't exist then it's obviously the last one in the list and the current nodes nextNode will be assigned to `null`
+
+```js
+  pop() {
+    let current = this.head;
+    while (current.nextNode) {
+      if (!current.nextNode.nextNode) {
+        current.nextNode = null;
+      } else {
+        current = current.nextNode;
+      }
+    }
+  }
+```
