@@ -76,3 +76,21 @@ Size was a matter of looping throuh the Nodes untill there was no longer a nextN
     return counter;
   }
 ```
+
+## Head Tail
+
+head() is to return the first node, Tail is to Return the last (head has an extra d because list.head achieves the same thing we're trying to achieve.)
+
+```js
+  headd() {
+    return this.head;
+  }
+
+  tail() {
+    let current = this.head;
+    while (current.nextNode) {
+      current = current.nextNode;
+    }
+    return current;
+  }
+```

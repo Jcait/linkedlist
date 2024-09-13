@@ -50,6 +50,29 @@ class LinkedList {
     }
     return current;
   }
+  at(index) {
+    const indx = index;
+    let currentIndex = 0;
+    let current = this.head;
+
+    while (indx != currentIndex) {
+      current = current.nextNode;
+      currentIndex++;
+      console.log(currentIndex);
+    }
+    return current;
+  }
+
+  pop() {
+    let current = this.head;
+    while (current.nextNode) {
+      if (!current.nextNode.nextNode) {
+        current.nextNode = null;
+      } else {
+        current = current.nextNode;
+      }
+    }
+  }
 }
 
 class Node {
