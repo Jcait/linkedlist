@@ -130,3 +130,63 @@ Struggled a bit with this one, but I found if we the nextNodes Next node doesn't
     }
   }
 ```
+
+## contains
+
+Contain consisted of checking the nodes for the value, the logic is that the list would be iterated and if the value wasn't found it would arrive at null, since we have to return a value false or in this case file not found, it just has to check if the current node exists.
+
+```js
+  contains(value) {
+    let current = this.head;
+    while (value != current.value) {
+      current = current.nextNode;
+      if (!current) {
+        return "Value not found";
+      }
+    }
+    return true;
+  }
+```
+
+## find
+
+Find uses the same as above but keeping a count and reurning the index
+
+```js
+  find(value) {
+    let current = this.head;
+    let count = 0;
+    while (value != current.value) {
+      count++;
+      current = current.nextNode;
+      if (!current) {
+        return null;
+      }
+    }
+
+    return `"Index ${count} is ${value}`;
+  }
+```
+
+## toString
+
+This feels convoluted but this is about understanding data structures at a foundantional level (as TOP puts it, we dont have much need for a Linkedlist when we have arrays.) THe logic is to grab the value as long as it exists and to check the next node before the loop repeats, if the next node is empty it adds the null and the loop closes out
+
+```js
+  toString() {
+    let current = this.head;
+    let string = `( ${current.value} ) -> `;
+    while (current.nextNode) {
+      string += `( ${current.value} ) -> `;
+      current = current.nextNode;
+      if (!current.nextNode) {
+        string += ` ${current.nextNode} `;
+      }
+    }
+    return string;
+  }
+```
+
+## Thoughts
+
+This exercise and as a whole the computer science part have been very interesting, I want to come back to this as some point to see if it's possible to make a LinkedList withbout being DRY

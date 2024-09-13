@@ -1,4 +1,4 @@
-class LinkedList {
+export default class LinkedList {
   constructor() {
     this.head = null;
   }
@@ -72,6 +72,42 @@ class LinkedList {
         current = current.nextNode;
       }
     }
+  }
+
+  contains(value) {
+    let current = this.head;
+    while (value != current.value) {
+      current = current.nextNode;
+      if (!current) {
+        return "Value not found";
+      }
+    }
+    return true;
+  }
+  find(value) {
+    let current = this.head;
+    let count = 0;
+    while (value != current.value) {
+      count++;
+      current = current.nextNode;
+      if (!current) {
+        return null;
+      }
+    }
+
+    return `"Index ${count} is ${value}`;
+  }
+  toString() {
+    let current = this.head;
+    let string = `( ${current.value} ) -> `;
+    while (current.nextNode) {
+      string += `( ${current.value} ) -> `;
+      current = current.nextNode;
+      if (!current.nextNode) {
+        string += ` ${current.nextNode} `;
+      }
+    }
+    return string;
   }
 }
 
